@@ -1,4 +1,4 @@
-Sub moneyMaker()
+Sub calcStockHistory()
     'This sub will run through each sheet in the notebook, skipping the first line
     'It will total the volume and capture the ticker signal
     
@@ -14,12 +14,6 @@ Sub moneyMaker()
     Dim headers, headersColumn As Variant
     
     Dim volumeCol, openCol, closeCol, tickerOutputCol, yearChangeCol, percentChangeCol, totalStockVolCol As Integer
-    
-    Dim TROUBLESHOOT_FLAG As Boolean
-    
-    'Troubleshoot Flag is TRUE to run on a shorter dataset for testing, false for the full dataset
-    TROUBLESHOOT_FLAG = False
-    MsgBox ("Troubleshoot flag is: " + CStr(TROUBLESHOOT_FLAG))
         
     'static variables for column offsets
     volumeCol = 7
@@ -145,7 +139,7 @@ Sub moneyMaker()
         
         ActiveWorkbook.Worksheets(i).Cells(3, 15).Value = greatestDecTicker
         ActiveWorkbook.Worksheets(i).Cells(3, 16).Value = greatestDec
-        ActiveWorkbook.Worksheets(i).Cells(3, 1).NumberFormat = "0.00%"
+        ActiveWorkbook.Worksheets(i).Cells(3, 16).NumberFormat = "0.00%"
         
         ActiveWorkbook.Worksheets(i).Cells(4, 15).Value = greatestVolTicker
         ActiveWorkbook.Worksheets(i).Cells(4, 16).Value = greatestVol
@@ -182,3 +176,4 @@ Sub reset()
         Next i
     Next j
 End Sub
+
